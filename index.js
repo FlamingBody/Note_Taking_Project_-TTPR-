@@ -17,16 +17,27 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.get("/", (req, res) =>{
     res.render("index", { notes });
 });
- app.post("/new", (req, res) =>{
+
+app.post("/new", (req, res) =>{
     const {title, content} = req.body;
     const newNote = {
         id: Date.now(),
         title, content,
     };
-    newNote.title = newNote.title.slice(0,10) + "...";
     notes.push(newNote);
     res.redirect("/")
 })
+
+app.get("/note/:id", (req, res) => {
+    const noteId = parseInt(req.params.id);
+    const note = notes.find(n => n.id === noteId);
+    if (note) {
+        res.render("note", { note });
+    } else {
+        res.status(404).send("Note not found");
+    }
+});
+
 
 app.post("/delete/:id", (req, res) => {
     const idToDelete = parseInt(req.params.id);

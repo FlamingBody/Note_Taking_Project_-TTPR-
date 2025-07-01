@@ -18,20 +18,24 @@
           
         <div class="left_notes">
             <% notes.forEach(note => { %>
-        <div class="new_note">
-            <h3><%= note.title %></h3>
-            <form action="/delete/<%= note.id %>" method="POST">
-              <button type="submit"><i class="fa-solid fa-trash"></i></button>
-            </form>
+              <div class="new_note">
+                <a href="/note/<%= note.id %>">
+                  <h3>
+                    <%= note.title.length > 20 ? note.title.slice(0, 30) + "..." : note.title %>
+                  </h3>
+                </a>
+                <form action="/delete/<%= note.id %>" method="POST">
+                  <button type="submit"><i class="fa-solid fa-trash"></i></button>
+                </form>
+              </div>
+            <% }) %>
           </div>
-        <% }) %>
-        
-        </div>
+          
         <div class="right_notepad">
             <form action="/new" method="POST" class="note-form">
                 <input type="text" name="title" placeholder="Note Title" required>
                 <textarea name="content" placeholder="Write your note..." required></textarea>
-                <button type="submit">Add Note</button>
+                <button id="addNote" type="submit">Add Note</button>
             </form>
         </div>
     </div>
