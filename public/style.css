@@ -14,19 +14,17 @@
 
 .main_container{
     display: flex;
-    background-color: orange;
-    height: 500px;
+    height: 100vh;
 }
 
 .left_notes{
-    background-color: rgb(74, 74, 74);
     border-right: 1px solid gray;
-    border-bottom: 1px solid gray;
     height: 100%;
     width: 30%;
 }
 
 .new_note{
+    border-bottom: 1px solid gray;
     margin-top: 1px;
     display: flex;
     padding: 10px 10px;
@@ -46,7 +44,7 @@
 .fa-trash{
     border: none;
     margin-top: 10px;
-    margin-left: 90px;
+    margin-left: 50px;
     font-size: 11pt;
     transition: all 0.3s ease;
 }
@@ -77,10 +75,16 @@ form input{
     font-family: 'Caveat', cursive;
     color: black;
 }
+textarea{
+    background-color: transparent;
+    width: 100%;
+    border: none;
+}
 
 form button{
     display: block;
 }
+
 
 
         

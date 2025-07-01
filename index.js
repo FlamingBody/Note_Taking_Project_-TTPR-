@@ -23,6 +23,7 @@ app.get("/", (req, res) =>{
         id: Date.now(),
         title, content,
     };
+    newNote.title = newNote.title.slice(0,10) + "...";
     notes.push(newNote);
     res.redirect("/")
 })
@@ -32,7 +33,7 @@ app.post("/delete/:id", (req, res) => {
     notes = notes.filter(note => note.id !== idToDelete);
     res.redirect("/");
   });
-  
+
 app.listen(port, (req, res)=>{
     console.log(`running on port ${port}`);
 });
