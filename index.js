@@ -8,12 +8,12 @@ import { fileURLToPath } from "url";
 //const fs = require("fs");
 //const path = require("path")
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const filePath = path.join(__dirname, "note.txt");
+const filePath = path.join(__dirname, "public/localStorage.txt");
 
 const app = express();
 const port = 3000;
 
-const textContent = fs.readFileSync("note.txt", "utf8");
+const textContent = fs.readFileSync("public/localStorage.txt", "utf8");
 let notes = JSON.parse(textContent) || [];
 //let notes = [];
 
@@ -41,7 +41,7 @@ app.get("/open/:id", (req, res) => {
 
   const idToOpen = parseInt(req.params.id);
   try {
-    const fileContent = fs.readFileSync("note.txt", "utf8");
+    const fileContent = fs.readFileSync("public/localStorage.txt", "utf8");
     const noteData = JSON.parse(fileContent);
     console.log("Parsed Notes: ", noteData);
     //console.log("Length ", noteData.length);

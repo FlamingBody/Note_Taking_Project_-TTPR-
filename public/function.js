@@ -13,7 +13,7 @@ function createNewPage(){
             placeholder="Title"
             value=""
           />
-          <button id="create" type="submit" onclick="checkNote()">Add Note</button>
+          <button id="create" type="submit">Add Note</button>
           </div>
           <br />
           <textarea
