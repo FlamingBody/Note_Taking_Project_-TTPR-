@@ -38,6 +38,19 @@ app.get("/note/:id", (req, res) => {
     }
 });
 
+app.post("/update/:id", (req, res) => {
+    const noteId = parseInt(req.params.id);
+    const { title, content } = req.body;
+    const noteIndex = notes.findIndex(n => n.id === noteId);
+
+    if (noteIndex !== -1) {
+        notes[noteIndex].title = title;
+        notes[noteIndex].content = content;
+        res.redirect("/"); // Go back to all notes after update
+    } else {
+        res.status(404).send("Note not found");
+    }
+});
 
 app.post("/delete/:id", (req, res) => {
     const idToDelete = parseInt(req.params.id);

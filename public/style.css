@@ -40,6 +40,7 @@
 .new_note button{
     width: 0%;
     height: 0%;
+    border:none;
 }
 .fa-trash{
     border: none;
